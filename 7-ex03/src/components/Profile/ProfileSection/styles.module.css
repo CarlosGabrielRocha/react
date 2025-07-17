@@ -1,0 +1,15 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.wrapper p, span {
+    padding: 0.5rem;
+}
+
+.wrapper hr {
+   border: 1px solid #74CAE6;
+}

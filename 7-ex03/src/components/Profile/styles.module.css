@@ -1,3 +1,7 @@
+.blue {
+    background-color: #a1c6d3;
+}
+
 .profileContainer {
     display: flex;
     flex-direction: column;
@@ -24,22 +28,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.info {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    width: 100%;
-    text-align: center;
-}
-
-.info p, span {
-    padding: 0.5rem;
-}
-
-.info hr {
-   border: 1px solid #74CAE6;
 }
 
 .buttons {

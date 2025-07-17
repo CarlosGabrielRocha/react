@@ -1,4 +1,6 @@
+import Title from '../Title';
 import UrlButton from '../UrlButton';
+import ProfileSection from './ProfileSection';
 import styles from './styles.module.css';
 
 function Profile({ avatar, name, bio, email, phone, githubUrl, linkedinUrl, twitterUrl }) {
@@ -7,8 +9,16 @@ function Profile({ avatar, name, bio, email, phone, githubUrl, linkedinUrl, twit
             <div className={styles.profilePicture}>
                 <img src={avatar} alt={name} />
             </div>
-            <h1>{name}</h1>
-            <div className={styles.info}>
+            <Title>
+                <span>{name}</span>
+                <button>Follow</button>
+            </Title>
+            <ProfileSection
+                className={styles.blue}
+                id="profile-section"
+                data-test="some value"
+                aria-label="some value"
+            >
                 <hr />
                 <p>{bio}</p>
                 <hr />
@@ -16,11 +26,11 @@ function Profile({ avatar, name, bio, email, phone, githubUrl, linkedinUrl, twit
                 <hr />
                 <p>{email}</p>
                 <hr />
-            </div>
+            </ProfileSection>
             <div className={styles.buttons}>
-                <UrlButton text="GitHub" url={githubUrl} />
-                <UrlButton text="Linkedin" url={linkedinUrl} />
-                <UrlButton text="Twitter" url={twitterUrl} />
+                <UrlButton url={githubUrl}>Github</UrlButton>
+                <UrlButton url={linkedinUrl}>Linkedin</UrlButton>
+                <UrlButton url={twitterUrl}>Twitter</UrlButton>
             </div>
         </div>
     )
