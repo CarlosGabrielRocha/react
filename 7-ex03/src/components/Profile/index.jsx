@@ -1,9 +1,21 @@
+import { useState } from 'react';
 import Title from '../Title';
 import UrlButton from '../UrlButton';
 import ProfileSection from './ProfileSection';
 import styles from './styles.module.css';
 
+
+
 function Profile({ avatar, name, bio, email, phone, githubUrl, linkedinUrl, twitterUrl }) {
+    // [valor, funcaoModificadora]
+    const [followText, setFollowText] = useState("Follow")   
+    //let followButtonText = "follow"
+
+    function handleClick(ev) {
+        alert('Você agora está seguindo!')
+        setFollowText("Following")
+    }
+
     return (
         <div className={styles.profileContainer}>
             <div className={styles.profilePicture}>
@@ -11,7 +23,11 @@ function Profile({ avatar, name, bio, email, phone, githubUrl, linkedinUrl, twit
             </div>
             <Title>
                 <span>{name}</span>
-                <button>Follow</button>
+                <button
+                    className={styles.followButton}
+                    onClick={handleClick}>
+                    {followText}
+                </button>
             </Title>
             <ProfileSection
                 className={styles.blue}

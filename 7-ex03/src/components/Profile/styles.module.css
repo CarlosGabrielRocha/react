@@ -24,6 +24,11 @@
     overflow: hidden;
 }
 
+.followButton {
+    margin-left: 1rem;
+    padding: .125rem .5rem;
+}
+
 .profilePicture img {
     width: 100%;
     height: 100%;

@@ -1,0 +1,16 @@
+.wrapper {
+    padding: 1rem 3rem;
+    background-color: #1a1a1a;
+    color: #fff;
+    border: 1px solid #858484;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.wrapper:hover {
+    border-radius: .5rem;
+}
+
+.wrapper:active {
+    background-color: #222222;
+}
