@@ -1,5 +1,5 @@
 {
-  "name": "9-ex04",
+  "name": "10-listas-de-dados",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,8 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "generate-password-browser": "^1.1.0",
-    "prop-types": "^15.8.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
