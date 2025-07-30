@@ -1,0 +1,45 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    width: 100%;
+}
+
+.commentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem 0rem;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.commentContainer span {
+    font-weight: lighter;
+}
+
+.commentHeader {
+    display: flex;
+    gap: 1rem;
+}
+
+.commentHeader p {
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+
+.commentHeader a {
+    font-weight: lighter;
+    color: #e95656;
+    cursor: pointer;
+}
+
+.commentHeader a:hover {
+    text-decoration: underline;
+}
+
+.commentBody p {
+   line-break: anywhere;
+}

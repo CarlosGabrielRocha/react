@@ -1,0 +1,12 @@
+.btn {
+    padding: .7rem 3rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    font-weight: bold;
+}
+
+.btn:hover {
+    border: 1px solid #fff;
+    font-weight: bolder;
+}

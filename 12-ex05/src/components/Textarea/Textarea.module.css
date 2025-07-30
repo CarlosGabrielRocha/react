@@ -1,0 +1,10 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;    
+}
+
+.wrapper textarea {
+    padding: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
