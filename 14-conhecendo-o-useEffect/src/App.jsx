@@ -1,41 +1,87 @@
-import { useEffect, useState } from "react";
+import { useState } from "react"
 
-function Counter() {
-  const [counter, setCounter] = useState(0)
-
-  useEffect(() => {
-    console.log("Chamando a API!")
-
-    return () => {
-      console.log("Chamada encerrada!")
-    }
-  }, []) // O efeito colateral é ativado na primeira renderização do component, após isso só depois da modificação de alguma dependência. Sem o [] ele é executado a cada renderização mas normalmente não queremos esse comportamento.
-
-  return (
-    <button onClick={() => setCounter(state => state + 1)}>
-      Contador: {counter}
-    </button>
-  )
-
+async function fetchpokemon() {
+	const response = await fetch("https://pokeapi.co/api/v2/pokemon")
+	const data = await response.json()
+	return data.results
 }
 
 export default function App() {
-  const [show, setShow] = useState(false)
+	const [pokemon, setPokemon] = useState([])
+	const [pokemonShown, setPokemonShown] = useState(null)
 
-  return (
-    <>
-      <h1>Conhecendo o useEffect</h1>
-      <div>
-        <input 
-          type="checkbox"
-          id="show"
-          value={show}
-          onChange={() => setShow(state => !state)}
-        />
-        <label htmlFor="show">Exibir</label>
-      </div>
-      { show ? <Counter /> : null}
-      <hr />
-    </>
-  )
+	if (pokemon.length === 0) {
+		fetchpokemon().then(results => {
+			console.log('Requisição realizada.')
+			console.log(results)
+			setPokemon(results)
+		})
+	}
+
+	const showDetails = async (url) => {
+		const data = await fetch(url).then(res => res.json())
+		console.log("Pokemon encontrado!")
+		console.log(data)
+		setPokemonShown(data)
+	}
+
+	return (
+		<div className="app">
+			<div>
+				<h2>Pokémon</h2>
+				<ul className="pokemon">
+					{pokemon.map(mon => (
+						<li key={mon.name}>
+							<span>{mon.name}</span>
+							<button onClick={() => showDetails(mon.url)}>
+								Ver detalhes
+							</button>
+						</li>
+					))}
+				</ul>
+			</div>
+			{pokemonShown && (
+        <div>
+          <h2>{pokemonShown.name}</h2>
+          <img
+            src={pokemonShown.sprites.front_default}
+            alt=""
+          />
+          <div className="stat">
+            <b>Tipo: </b>
+            {pokemonShown.types.map(({ type }) => (
+              <span key={type.name}>{type.name} </span>
+            ))}
+          </div>
+          <div className="stat">
+            <b>Altura: </b>{pokemonShown.height / 10} m
+          </div>
+          <div className="stat">
+            <b>Peso: </b>{pokemonShown.weight / 10} Kg
+          </div>
+          <div className="stat">
+            <b>Atributos</b>
+            <ul>
+              {pokemonShown.stats.map(({ base_stat, stat }) => (
+                <li key={stat.name}>
+                  {stat.name}: {base_stat}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="stat">
+            <b>Habilidades</b>
+            <ul>
+              {pokemonShown.abilities.map(({ ability, is_hidden }) => (
+                <li key={ability.name}>
+                  {ability.name}
+                  {is_hidden && " (secreta)"}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+		</div>
+	)
 }
