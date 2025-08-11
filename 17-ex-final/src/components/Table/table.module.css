@@ -1,0 +1,16 @@
+.wrapper {
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  border-collapse: collapse;
+}
+
+.wrapper thead th {
+  background-color: var(--dark-color);
+}
+
+.wrapper td, th {
+  width: fit-content;
+  padding: 0.8rem;
+  text-align: start;
+} 

@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  padding: 1rem;
+  background-color: var(--dark-color);
+  border-radius: .5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.wrapper h2 {
+  font-size: 1rem;
+  padding-bottom: 1rem;
+}
+
+.wrapper span {
+  min-width: 17rem;
+  font-size: 1.8rem;
+  text-align: center;
+}

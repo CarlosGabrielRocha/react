@@ -1,0 +1,5 @@
+.wrapper {
+  background-color: var(--dark-color);
+  color: #fff;
+  padding: 1rem 1.5rem;
+}

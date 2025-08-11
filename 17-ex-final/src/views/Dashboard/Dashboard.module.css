@@ -1,0 +1,6 @@
+.wrapper section {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0rem;
+}
